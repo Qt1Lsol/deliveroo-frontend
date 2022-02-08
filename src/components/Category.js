@@ -1,15 +1,24 @@
-const handelClick = (meal) => {
-  const [panier, setPanier] = useState([]);
-  const newPanier = [...Panier];
-  // modification de la copie
-  newPanier.push(meal);
-  // mise à jour du state avec la copie
-  setPanier(newPanier);
-
-  console.log(newPanier);
-};
+import { useState } from "react";
 
 const Category = ({ category }) => {
+  const [panier, setPanier] = useState([]);
+
+  const handelClick = (meal) => {
+    const newPanier = [...panier];
+    // modification de la copie
+    newPanier.push(meal);
+    // mise à jour du state avec la copie
+    setPanier(newPanier);
+
+    {
+      newPanier.map((select_meal, index) => {
+        return <p>{select_meal.id}</p>;
+      });
+    }
+
+    console.log(newPanier);
+  };
+
   return (
     <div>
       <h2>{category.name}</h2>
