@@ -1,3 +1,7 @@
+const handelClick = (meal) => {
+  console.log("J'ai cliqué sur le produit ====> ", meal);
+};
+
 const Category = ({ category }) => {
   return (
     <div>
@@ -5,12 +9,7 @@ const Category = ({ category }) => {
       {/* List de produits */}
       {category.meals.map((meal, index) => {
         return (
-          <div
-            onClick={() => {
-              console.log("J'ai cliqué sur le produit ====> ", meal);
-            }}
-            className="card"
-          >
+          <div onClick={handelClick(meal)} className="card">
             <h3>{meal.title}</h3>
             <p>{meal.description.slice(0, 50)}...</p>
             {meal.picture && (
