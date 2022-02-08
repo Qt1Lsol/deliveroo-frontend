@@ -1,13 +1,12 @@
 const handelClick = (meal) => {
-  const [tab, setTab] = useState([]);
-
-  const newTab = [...tab];
+  const [panier, setPanier] = useState([]);
+  const newPanier = [...Panier];
   // modification de la copie
-  newTab.push(meal);
+  newPanier.push(meal);
   // mise à jour du state avec la copie
-  setTab(newTab);
+  setPanier(newPanier);
 
-  console.log(newTab);
+  console.log(newPanier);
 };
 
 const Category = ({ category }) => {
