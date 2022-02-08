@@ -1,5 +1,13 @@
 const handelClick = (meal) => {
-  console.log("J'ai cliqué sur le produit ====> ", meal);
+  const [tab, setTab] = useState([]);
+
+  const newTab = [...tab];
+  // modification de la copie
+  newTab.push(meal);
+  // mise à jour du state avec la copie
+  setTab(newTab);
+
+  console.log(newTab);
 };
 
 const Category = ({ category }) => {
@@ -9,7 +17,12 @@ const Category = ({ category }) => {
       {/* List de produits */}
       {category.meals.map((meal, index) => {
         return (
-          <div onClick={handelClick(meal)} className="card">
+          <div
+            onClick={() => {
+              handelClick(meal);
+            }}
+            className="card"
+          >
             <h3>{meal.title}</h3>
             <p>{meal.description.slice(0, 50)}...</p>
             {meal.picture && (
