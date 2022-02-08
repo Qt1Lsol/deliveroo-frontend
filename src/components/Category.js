@@ -9,13 +9,6 @@ const Category = ({ category }) => {
     newPanier.push(meal);
     // mise à jour du state avec la copie
     setPanier(newPanier);
-
-    {
-      newPanier.map((select_meal, index) => {
-        return <p>{select_meal.id}</p>;
-      });
-    }
-
     console.log(newPanier);
   };
 
@@ -40,6 +33,10 @@ const Category = ({ category }) => {
             {meal.popular && <span>★ Populaire</span>}
           </div>
         );
+      })}
+
+      {panier.map((select_meal, index) => {
+        return <p key={index}>{select_meal}</p>;
       })}
     </div>
   );
